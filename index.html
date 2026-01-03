@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성문서 학습: 역대기-에스라-느헤미야</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d3561 0%, #1e2139 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 3px solid #e9ecef;
+            overflow-x: auto;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-size: 1em;
+            font-weight: 600;
+            color: #495057;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tab:hover {
+            background: #e9ecef;
+        }
+
+        .nav-tab.active {
+            background: white;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            margin-bottom: -3px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            color: #2d3561;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .card h3 {
+            color: #495057;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .card p, .card li {
+            line-height: 1.8;
+            color: #495057;
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .scripture {
+            background: white;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-style: italic;
+        }
+
+        .scripture strong {
+            color: #28a745;
+            display: block;
+            margin-bottom: 10px;
+            font-style: normal;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 20px 0 20px 50px;
+            border-left: 3px solid #667eea;
+            margin-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        .timeline-item h4 {
+            color: #2d3561;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            color: #6c757d;
+        }
+
+        .interactive-quiz {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .quiz-question {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 15px;
+        }
+
+        .quiz-option {
+            background: white;
+            color: #2d3561;
+            padding: 15px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .quiz-option:hover {
+            transform: translateX(10px);
+            border-color: #ffd700;
+        }
+
+        .quiz-option.correct {
+            background: #28a745;
+            color: white;
+            border-color: #1e7e34;
+        }
+
+        .quiz-option.incorrect {
+            background: #dc3545;
+            color: white;
+            border-color: #bd2130;
+        }
+
+        .quiz-feedback {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            display: none;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+            animation: slideDown 0.5s;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .reflection-box {
+            background: #fff3cd;
+            border: 2px dashed #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .reflection-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .reflection-box textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            margin-top: 10px;
+            resize: vertical;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffd700 0%, #ffd700 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 85%;
+            padding: 2px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #667eea;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s;
+        }
+
+        .icon {
+            font-size: 2em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .footer {
+            background: #2d3561;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tab {
+                font-size: 0.9em;
+                padding: 15px 10px;
+                min-width: 120px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+
+        .collapsible {
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1em;
+            border-radius: 10px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #5568d3;
+        }
+
+        .collapsible:after {
+            content: '\002B';
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .collapsible.active:after {
+            content: "\2212";
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: #f8f9fa;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .collapsible-content-inner {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📜 성문서: 역대기-에스라-느헤미야</h1>
+            <p>회복 공동체를 위한 재해석된 역사</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('intro')">소개</button>
+            <button class="nav-tab" onclick="showSection('chronicles')">역대기</button>
+            <button class="nav-tab" onclick="showSection('ezra-nehemiah')">에스라-느헤미야</button>
+            <button class="nav-tab" onclick="showSection('theology')">신학 주제</button>
+            <button class="nav-tab" onclick="showSection('application')">적용</button>
+            <button class="nav-tab" onclick="showSection('quiz')">퀴즈</button>
+        </div>
+
+        <div class="content">
+            <!-- 소개 섹션 -->
+            <div id="intro" class="section active">
+                <div class="card">
+                    <span class="icon">🎯</span>
+                    <h2>학습 목표</h2>
+                    <p>이 인터랙티브 학습 앱을 통해:</p>
+                    <ul>
+                        <li><strong>역대기</strong>가 사무엘-열왕기를 어떻게 신학적으로 재해석하는지 이해합니다</li>
+                        <li><strong>에스라-느헤미야</strong>의 포로 후 회복 사역을 분석합니다</li>
+                        <li><strong>성전 중심 신학</strong>과 언약 회복의 중요성을 파악합니다</li>
+                        <li><strong>현대 적용</strong>: 오늘날 우리 공동체에 어떻게 적용할지 성찰합니다</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <span class="icon">📚</span>
+                    <h2>성문서(כְּתוּבִים)의 위치</h2>
+                    <p>히브리 성경(타나크)의 세 번째 부분:</p>
+                    <div style="display: grid; gap: 15px; margin-top: 20px;">
+                        <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #28a745;">
+                            <strong>1. תּוֹרָה (토라/율법서)</strong>
+                            <p>창세기, 출애굽기, 레위기, 민수기, 신명기</p>
+                        </div>
+                        <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #ffc107;">
+                            <strong>2. נְבִיאִים (느비임/예언서)</strong>
+                            <p>전기예언서 + 후기예언서</p>
+                        </div>
+                        <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #667eea;">
+                            <strong>3. כְּתוּבִים (케투빔/성문서)</strong>
+                            <p>시편, 잠언, 욥기, 오경두루마리, 다니엘, <span class="highlight">에스라-느헤미야, 역대기</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>💡 핵심 통찰</h2>
+                    <div class="scripture">
+                        <strong>역대하 36:22-23 (히브리 성경의 마지막 구절)</strong>
+                        "페르시아 왕 고레스 원년에... 너희 중에 그의 백성된 자는 다 <span class="highlight">올라갈지어다</span> (יַעַל) 너희 하나님 여호와께서 함께 하시기를 원하노라"
+                    </div>
+                    <p>히브리 성경은 <strong>"올라가라"</strong>는 초대로 끝납니다. 이것은 <span class="highlight">열린 결말</span>—이야기는 계속되며, 우리는 여전히 그 이야기 속에 있습니다.</p>
+                </div>
+
+                <div class="timeline">
+                    <h2 style="margin-bottom: 20px;">⏱️ 역사적 타임라인</h2>
+                    <div class="timeline-item">
+                        <h4>1000-970 BCE</h4>
+                        <p>다윗의 통치 - 예루살렘 정복, 언약궤 이동</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>970-930 BCE</h4>
+                        <p>솔로몬의 통치 - 성전 건축 (966-959 BCE)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>930 BCE</h4>
+                        <p>왕국 분열 - 북이스라엘 / 남유다</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>586 BCE</h4>
+                        <p>예루살렘 함락, 성전 파괴, 바벨론 포로</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>539 BCE</h4>
+                        <p>페르시아가 바벨론 정복</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>538 BCE</h4>
+                        <p>고레스 칙령 - 귀환 허용</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>536-515 BCE</h4>
+                        <p>첫 번째 귀환 (스룹바벨), 성전 재건</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>458 BCE</h4>
+                        <p>에스라의 귀환, 율법 가르침</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>445 BCE</h4>
+                        <p>느헤미야의 귀환, 성벽 재건 (52일)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>400s BCE</h4>
+                        <p>역대기 기록 (추정)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 역대기 섹션 -->
+            <div id="chronicles" class="section">
+                <div class="card">
+                    <span class="icon">👑</span>
+                    <h2>역대기상하 개요</h2>
+                    <p><strong>히브리어 제목:</strong> דִּבְרֵי הַיָּמִים (Divre Hayyamim) = "시대의 사건들"</p>
+                    <p><strong>저자:</strong> 알 수 없음 (전통적으로 에스라로 추정)</p>
+                    <p><strong>기록 시기:</strong> 기원전 400년경 (포로 후)</p>
+                    <p><strong>기록 대상:</strong> 귀환한 유다 공동체</p>
+                    
+                    <h3>📊 통계</h3>
+                    <ul>
+                        <li><strong>장:</strong> 65장 (상 29 + 하 36)</li>
+                        <li><strong>절:</strong> 1,765절</li>
+                        <li><strong>시간 범위:</strong> 아담부터 고레스 칙령까지</li>
+                        <li><strong>실제 서사 집중:</strong> 사울-다윗-솔로몬-유다 왕들 (~472년)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>🔍 사무엘-열왕기 vs 역대기</h2>
+                    <table class="comparison-table">
+                        <tr>
+                            <th>측면</th>
+                            <th>사무엘-열왕기</th>
+                            <th>역대기</th>
+                        </tr>
+                        <tr>
+                            <td><strong>관점</strong></td>
+                            <td>예언자적 (신명기적)</td>
+                            <td>제사장적</td>
+                        </tr>
+                        <tr>
+                            <td><strong>초점</strong></td>
+                            <td>정치사 + 도덕적 평가</td>
+                            <td>예배/성전사 + 신학적 평가</td>
+                        </tr>
+                        <tr>
+                            <td><strong>북이스라엘</strong></td>
+                            <td>상세히 다룸</td>
+                            <td>거의 무시</td>
+                        </tr>
+                        <tr>
+                            <td><strong>다윗 묘사</strong></td>
+                            <td>인간적 결함 포함 (밧세바, 압살롬)</td>
+                            <td>거의 완벽한 왕, 성전 준비자</td>
+                        </tr>
+                        <tr>
+                            <td><strong>평가 기준</strong></td>
+                            <td>우상숭배 제거 여부</td>
+                            <td>성전 예배 충실성</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <button class="collapsible">역대상 구조 (클릭하여 펼치기)</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <h3>역대상 1-9장: 족보</h3>
+                        <ul>
+                            <li>1-2장: 아담부터 이스라엘(야곱)까지</li>
+                            <li>3장: 다윗 왕조 계보</li>
+                            <li>4-8장: 12지파 (특히 유다, 베냐민, 레위)</li>
+                            <li>9장: 귀환한 자들의 명단</li>
+                        </ul>
+
+                        <h3>역대상 10-29장: 다윗 통치</h3>
+                        <ul>
+                            <li>10장: 사울의 죽음</li>
+                            <li>11-12장: 다윗의 왕위 확립</li>
+                            <li>13-16장: 언약궤를 예루살렘으로</li>
+                            <li>17장: 다윗 언약</li>
+                            <li>18-20장: 다윗의 전쟁들</li>
+                            <li>21-22장: 성전 부지 확보와 준비</li>
+                            <li>23-27장: 성전과 왕국 조직</li>
+                            <li>28-29장: 솔로몬에게 왕위 계승</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button class="collapsible">역대하 구조 (클릭하여 펼치기)</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <h3>역대하 1-9장: 솔로몬 통치</h3>
+                        <ul>
+                            <li>1장: 솔로몬의 지혜와 부</li>
+                            <li>2-7장: 성전 건축과 봉헌</li>
+                            <li>8-9장: 솔로몬의 영광</li>
+                        </ul>
+
+                        <h3>역대하 10-36장: 유다 왕들</h3>
+                        <ul>
+                            <li>10-12장: 르호보암 (분열)</li>
+                            <li>13-16장: 초기 유다 왕들</li>
+                            <li>17-20장: 여호사밧 (개혁 왕)</li>
+                            <li>21-28장: 중기 유다 왕들</li>
+                            <li>29-32장: 히스기야 (위대한 개혁자)</li>
+                            <li>33-35장: 므낫세, 아몬, 요시야</li>
+                            <li>36장: 마지막 네 왕과 포로 / 고레스 칙령</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>📖 핵심 구절들</h2>
+                    
+                    <div class="scripture">
+                        <strong>역대상 17:11-14 - 다윗 언약</strong>
+                        "네 수한이 차서... 네 자손 중 하나를 네 뒤에 이어 왕이 되게 하고 그의 나라를 견고하게 하리라 그가 나를 위하여 <span class="highlight">집을 건축할 것</span>이요 내가 그의 왕위를 <span class="highlight">영원히</span> 견고하게 하리라"
+                    </div>
+
+                    <div class="scripture">
+                        <strong>역대하 7:1-3 - 성전 봉헌</strong>
+                        "솔로몬이 기도를 마치매 <span class="highlight">불이 하늘에서 내려와</span> 번제물과 제물들을 사르고 <span class="highlight">여호와의 영광이 그 성전에 가득</span>하니"
+                    </div>
+
+                    <div class="scripture">
+                        <strong>역대하 30:6-9 - 히스기야의 초대</strong>
+                        "너희는 여호와께로 <span class="highlight">돌아오라</span> (שׁוּבוּ) 너희가 만일 여호와께 돌아오면... 이 땅으로 <span class="highlight">돌아오리라</span>"
+                    </div>
+                </div>
+
+                <div class="reflection-box">
+                    <h4>💭 성찰 질문</h4>
+                    <p>역대기는 왜 다윗의 죄(밧세바 사건)를 생략했을까요? 이것이 역사 왜곡인가요, 아니면 신학적 선택인가요?</p>
+                    <textarea placeholder="여기에 당신의 생각을 적어보세요..."></textarea>
+                </div>
+            </div>
+
+            <!-- 에스라-느헤미야 섹션 -->
+            <div id="ezra-nehemiah" class="section">
+                <div class="card">
+                    <span class="icon">🏗️</span>
+                    <h2>에스라-느헤미야 개요</h2>
+                    <p><strong>원래:</strong> 히브리어 성경에서 한 권</p>
+                    <p><strong>저자:</strong> 에스라 (부분), 느헤미야 (회고록), 편집자</p>
+                    <p><strong>주요 인물:</strong></p>
+                    <ul>
+                        <li><strong>에스라:</strong> 제사장, 학사, 율법 교사</li>
+                        <li><strong>느헤미야:</strong> 페르시아 술 관원, 총독, 성벽 건축자</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>👥 에스라 vs 느헤미야</h2>
+                    <table class="comparison-table">
+                        <tr>
+                            <th></th>
+                            <th>에스라</th>
+                            <th>느헤미야</th>
+                        </tr>
+                        <tr>
+                            <td><strong>신분</strong></td>
+                            <td>제사장, 학사</td>
+                            <td>페르시아 왕의 술 관원</td>
+                        </tr>
+                        <tr>
+                            <td><strong>전문성</strong></td>
+                            <td>율법 전문가</td>
+                            <td>행정가, 조직가</td>
+                        </tr>
+                        <tr>
+                            <td><strong>주요 업적</strong></td>
+                            <td>율법 가르침, 영적 개혁</td>
+                            <td>성벽 재건, 사회 개혁</td>
+                        </tr>
+                        <tr>
+                            <td><strong>문학 양식</strong></td>
+                            <td>3인칭 + 공문서</td>
+                            <td>1인칭 회고록</td>
+                        </tr>
+                        <tr>
+                            <td><strong>성격</strong></td>
+                            <td>내성적, 학자적</td>
+                            <td>외향적, 행동파</td>
+                        </tr>
+                    </table>
+                    <p style="margin-top: 20px;"><strong>핵심:</strong> 두 사람은 <span class="highlight">보완적 지도자</span>입니다. 회복은 물리적이고 영적이어야 합니다!</p>
+                </div>
+
+                <button class="collapsible">에스라 구조</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <h3>에스라 1-6장: 첫 번째 귀환 (스룹바벨)</h3>
+                        <ul>
+                            <li>1장: 고레스 칙령</li>
+                            <li>2장: 귀환자 명단</li>
+                            <li>3장: 제단과 성전 기초</li>
+                            <li>4장: 대적들의 방해</li>
+                            <li>5-6장: 성전 완공 (학개, 스가랴)</li>
+                        </ul>
+
+                        <h3>에스라 7-10장: 두 번째 귀환 (에스라)</h3>
+                        <ul>
+                            <li>7장: 에스라의 소명</li>
+                            <li>8장: 에스라와 함께 귀환한 자들</li>
+                            <li>9-10장: 혼인 개혁 (논쟁적)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button class="collapsible">느헤미야 구조</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <h3>느헤미야 1-7장: 성벽 재건</h3>
+                        <ul>
+                            <li>1장: 느헤미야의 기도</li>
+                            <li>2장: 예루살렘 도착과 시찰</li>
+                            <li>3장: 건축 조직 (각 구역 담당자)</li>
+                            <li>4-6장: 대적들의 방해와 극복</li>
+                            <li>7장: 귀환자 명단</li>
+                        </ul>
+
+                        <h3>느헤미야 8-13장: 공동체 갱신</h3>
+                        <ul>
+                            <li>8장: 율법 낭독</li>
+                            <li>9장: 회개와 역사 고백</li>
+                            <li>10장: 언약 갱신</li>
+                            <li>11-12장: 거주자 명단, 성벽 봉헌</li>
+                            <li>13장: 느헤미야의 최종 개혁</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>📖 핵심 구절들</h2>
+                    
+                    <div class="scripture">
+                        <strong>에스라 1:1-3 - 고레스 칙령</strong>
+                        "여호와께서 페르시아 왕 고레스의 <span class="highlight">마음을 감동시키시매</span>... 이스라엘의 하나님은 참 신이시라"
+                    </div>
+
+                    <div class="scripture">
+                        <strong>에스라 7:10 - 에스라의 헌신</strong>
+                        "에스라가 여호와의 율법을 <span class="highlight">연구</span>하여 <span class="highlight">준행</span>하며 율례와 규례를 이스라엘에게 <span class="highlight">가르치기로</span> 결심하였었더라"
+                    </div>
+
+                    <div class="scripture">
+                        <strong>느헤미야 6:15-16 - 52일 만의 완공</strong>
+                        "성이 건축되매... <span class="highlight">52일</span> 만에 끝나매 우리의 모든 대적이... 이 일이 <span class="highlight">우리 하나님께서 이루신 것</span>을 알았느니라"
+                    </div>
+
+                    <div class="scripture">
+                        <strong>느헤미야 8:8 - 율법 낭독</strong>
+                        "그들이 하나님의 율법책을 <span class="highlight">낭독</span>하고 <span class="highlight">그 뜻을 해석</span>하여 백성에게 그 낭독하는 것을 <span class="highlight">깨닫게</span> 하니"
+                    </div>
+                </div>
+
+                <div class="card" style="border-left-color: #dc3545;">
+                    <h2>⚠️ 논쟁적 본문: 에스라 10장</h2>
+                    <p>에스라는 이방 여인과 결혼한 남자들에게 <strong>강제 이혼</strong>을 명령했습니다.</p>
+                    
+                    <h3>왜 이렇게 했는가?</h3>
+                    <ul>
+                        <li>작은 귀환 공동체의 <strong>정체성 보호</strong></li>
+                        <li>종교적 혼합주의 방지</li>
+                        <li>문화적 동화 위험</li>
+                    </ul>
+
+                    <h3>문제점</h3>
+                    <ul>
+                        <li>여성들을 객체화 (남성의 결정으로 추방)</li>
+                        <li>자녀들을 희생 (혼혈 자녀들은?)</li>
+                        <li>배타적 민족주의 강화</li>
+                    </ul>
+
+                    <div style="background: white; padding: 15px; border-radius: 10px; margin-top: 15px;">
+                        <strong>📖 룻기와의 대조:</strong>
+                        <p>룻기는 모압 여인 룻을 다윗의 증조모로 제시합니다. 룻기는 에스라의 배타성에 대한 반론(counter-narrative)으로 읽힐 수 있습니다.</p>
+                    </div>
+                </div>
+
+                <div class="reflection-box">
+                    <h4>💭 적용 질문</h4>
+                    <p>오늘날 우리 교회는 "정체성 보호"와 "환대" 사이에서 어떻게 균형을 잡아야 할까요?</p>
+                    <textarea placeholder="다문화 가정, 이주 노동자, 탈북자... 우리는 어떻게 반응하고 있나요?"></textarea>
+                </div>
+            </div>
+
+            <!-- 신학 주제 섹션 -->
+            <div id="theology" class="section">
+                <div class="card">
+                    <span class="icon">⛪</span>
+                    <h2>주제 1: 성전 중심성</h2>
+                    <p>역대기와 에스라-느헤미야에서 <strong>성전</strong>은 단순한 건물이 아닙니다.</p>
+
+                    <h3>성전의 세 가지 기능</h3>
+                    <div style="display: grid; gap: 15px; margin-top: 15px;">
+                        <div style="background: white; padding: 15px; border-radius: 10px; border-left: 4px solid #28a745;">
+                            <strong>1️⃣ 민족 통일의 상징</strong>
+                            <p>분열된 12지파를 하나로 묶는 중심</p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 10px; border-left: 4px solid #ffc107;">
+                            <strong>2️⃣ 제사장 나라의 부름</strong>
+                            <p>출애굽기 19:6의 비전 실현</p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 10px; border-left: 4px solid #667eea;">
+                            <strong>3️⃣ 하나님 임재의 표현</strong>
+                            <p>야훼께서 백성과 함께 거하심</p>
+                        </div>
+                    </div>
+
+                    <div class="scripture" style="margin-top: 20px;">
+                        <strong>역대하 7:1</strong>
+                        "불이 하늘에서 내려와... 여호와의 영광이 그 성전에 가득하니"
+                    </div>
+
+                    <div class="reflection-box">
+                        <h4>💭 현대적 질문</h4>
+                        <p>오늘날 "성전"은 무엇입니까? 건물? 공동체? 각 사람의 몸? (고전 6:19)</p>
+                        <p>한국 교회의 대형 건물 집착은 역대기 신학의 연속입니까, 왜곡입니까?</p>
+                        <textarea placeholder="당신의 생각을 적어보세요..."></textarea>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="icon">👑</span>
+                    <h2>주제 2: 다윗 언약과 메시아 희망</h2>
+                    
+                    <div class="scripture">
+                        <strong>역대상 17:14</strong>
+                        "내가 그의 왕위를 <span class="highlight">영원히</span> (עַד־עוֹלָם) 견고하게 하리라"
+                    </div>
+
+                    <p>포로 후 문제: 왕이 없었습니다. 다윗 가계는 존재했지만 (스룹바벨) 통치하지 않았습니다.</p>
+
+                    <h3>역대기의 답</h3>
+                    <p>"<strong>아니다</strong>. 왕조는 여전히 하나님 앞에 기록되어 있다. 때가 되면 다윗의 자손이 다시 통치할 것이다."</p>
+
+                    <div style="background: #e7f3ff; padding: 20px; border-radius: 10px; margin-top: 15px;">
+                        <strong>🎯 기독론적 독해:</strong>
+                        <p>신약은 예수를 "솔로몬보다 더 큰 이" (마 12:42)로 제시합니다.</p>
+                        <p>솔로몬의 지혜, 평화, 영광은 메시아 왕의 예표(type)입니다.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="icon">⚖️</span>
+                    <h2>주제 3: 즉각적 응보 (Immediate Retribution)</h2>
+                    
+                    <p>역대기는 명확한 인과응보 원리를 적용합니다:</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                        <div style="background: #d4edda; padding: 20px; border-radius: 10px; text-align: center;">
+                            <strong style="font-size: 1.5em;">✅ 순종</strong>
+                            <p style="margin-top: 10px;">⬇️</p>
+                            <strong style="font-size: 1.3em;">축복</strong>
+                        </div>
+                        <div style="background: #f8d7da; padding: 20px; border-radius: 10px; text-align: center;">
+                            <strong style="font-size: 1.5em;">❌ 불순종</strong>
+                            <p style="margin-top: 10px;">⬇️</p>
+                            <strong style="font-size: 1.3em;">재앙</strong>
+                        </div>
+                    </div>
+
+                    <div class="scripture">
+                        <strong>역대하 26:4-5, 16 - 웃시야</strong>
+                        "웃시야가... 정직하게 행하여... 하나님이 <span class="highlight">형통하게 하셨더라</span>"<br><br>
+                        "그러나 강성하여지매 그의 마음이 <span class="highlight">교만</span>하여... 여호와께서 치시매 <span class="highlight">나병 환자</span>가 되어"
+                    </div>
+
+                    <h3>⚠️ 비판적 질문</h3>
+                    <p>이 단순화된 신학은 실제 역사와 맞지 않습니다. <strong>욥기와 시편</strong>은 바로 이 도식에 도전합니다—의인이 고난받고 악인이 형통합니다.</p>
+
+                    <div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin-top: 15px;">
+                        <strong>⚠️ 한국 교회 적용 주의:</strong>
+                        <p>한국 교회의 <strong>번영신학</strong> (prosperity gospel)이 바로 이 역대기 신학의 단순화된 버전입니다: "믿으면 축복받는다. 헌금하면 부자 된다."</p>
+                        <p>그러나 역대기조차 <strong>회개와 돌아옴</strong> (שׁוּב)을 강조합니다—단순한 거래가 아니라 <strong>관계 회복</strong>입니다.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="icon">📜</span>
+                    <h2>주제 4: 율법 회복 - 정체성의 재구성</h2>
+                    
+                    <div class="scripture">
+                        <strong>에스라 7:10</strong>
+                        "에스라가 여호와의 율법을 <span class="highlight">연구</span>하여 (לִדְרוֹשׁ) <span class="highlight">준행</span>하며 (לַעֲשׂוֹת) 율례와 규례를 이스라엘에게 <span class="highlight">가르치기로</span> (וּלְלַמֵּד) 결심하였었더라"
+                    </div>
+
+                    <h3>율법 회복의 순서</h3>
+                    <div style="display: flex; justify-content: space-around; margin: 20px 0;">
+                        <div style="text-align: center;">
+                            <div style="background: #667eea; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 1.5em;">1</div>
+                            <strong style="display: block; margin-top: 10px;">연구</strong>
+                            <p style="font-size: 0.9em;">다라쉬</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="background: #667eea; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 1.5em;">2</div>
+                            <strong style="display: block; margin-top: 10px;">실천</strong>
+                            <p style="font-size: 0.9em;">아사</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="background: #667eea; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 1.5em;">3</div>
+                            <strong style="display: block; margin-top: 10px;">가르침</strong>
+                            <p style="font-size: 0.9em;">라메드</p>
+                        </div>
+                    </div>
+
+                    <h3>느헤미야 8장 - 최초의 주석적 설교</h3>
+                    <div class="scripture">
+                        <strong>느헤미야 8:8</strong>
+                        "그들이 하나님의 율법책을 <span class="highlight">낭독</span>하고 <span class="highlight">그 뜻을 해석</span>하여 백성에게 <span class="highlight">깨닫게</span> 하니"
+                    </div>
+
+                    <p><strong>세 가지 핵심 요소:</strong></p>
+                    <ul>
+                        <li><strong>낭독</strong> (קָרָא): 소리 내어 읽기</li>
+                        <li><strong>해석</strong> (פָּרַשׁ): 의미 설명하기</li>
+                        <li><strong>깨닫게 함</strong> (בִּין): 이해시키기</li>
+                    </ul>
+
+                    <p style="margin-top: 15px;">왜 해석이 필요했는가?</p>
+                    <ul>
+                        <li>언어가 변했습니다 (아람어 사용 증가)</li>
+                        <li>상황이 변했습니다 (포로 후 현실)</li>
+                        <li>적용이 필요합니다 (어떻게 지금 여기서 순종하는가?)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 적용 섹션 -->
+            <div id="application" class="section">
+                <div class="card">
+                    <span class="icon">🎯</span>
+                    <h2>현대적 적용: 우리의 "역대기" 쓰기</h2>
+                    
+                    <p>역대기는 같은 역사를 <strong>다른 렌즈</strong>로 재해석했습니다. 우리도 우리 공동체의 이야기를 재해석할 수 있습니다.</p>
+
+                    <div class="reflection-box">
+                        <h4>📝 실천 과제 1: 우리 공동체 역대기</h4>
+                        <p>다음 질문에 답하면서 여러분 공동체의 "역대기"를 작성하십시오:</p>
+                        
+                        <strong>1. 우리의 족보 (창립자, 중요한 지도자들):</strong>
+                        <textarea placeholder="예: 우리 교회는 1950년 ○○○ 목사님에 의해..."></textarea>
+
+                        <strong>2. 우리의 "성전" (중심 예배/모임 장소):</strong>
+                        <textarea placeholder="예: 우리의 작은 예배당은... / 우리는 가정에서..."></textarea>
+
+                        <strong>3. 우리가 겪은 위기와 회복:</strong>
+                        <textarea placeholder="예: 2020년 코로나로 예배당 문을 닫았지만..."></textarea>
+
+                        <strong>4. 우리의 "다윗 언약" (핵심 정체성 약속):</strong>
+                        <textarea placeholder="예: 우리는 소외된 이들을 환대하는 공동체입니다"></textarea>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="icon">🏗️</span>
+                    <h2>현대적 적용: 느헤미야 프로젝트</h2>
+                    
+                    <p>느헤미야는 52일 만에 성벽을 재건했습니다. 여러분도 짧고 집중된 재건 프로젝트를 시작할 수 있습니다.</p>
+
+                    <h3>52일 프로젝트 예시</h3>
+                    <div style="display: grid; gap: 15px;">
+                        <div style="background: white; padding: 15px; border-radius: 10px; border-left: 4px solid #28a745;">
+                            <strong>🌱 물리적 재건:</strong> 교회 공동 텃밭 만들기, 노후 시설 수리
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 10px; border-left: 4px solid #ffc107;">
+                            <strong>👥 사회적 재건:</strong> 다문화 가정 자녀 교육, 노숙자 임시 쉼터
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 10px; border-left: 4px solid #667eea;">
+                            <strong>📖 영적 재건:</strong> 매주 성경 낭독과 해석 모임 (느헤미야 8장 재현)
+                        </div>
+                    </div>
+
+                    <div class="reflection-box" style="margin-top: 20px;">
+                        <h4>📋 프로젝트 계획</h4>
+                        
+                        <strong>무너진 것 식별:</strong>
+                        <textarea placeholder="우리 지역/공동체에서 무엇이 무너졌나요?"></textarea>
+
+                        <strong>52일 목표 설정:</strong>
+                        <textarea placeholder="52일 안에 무엇을 이룰 수 있을까요?"></textarea>
+
+                        <strong>필요한 자원과 사람:</strong>
+                        <textarea placeholder="누구와 함께, 무엇이 필요한가요?"></textarea>
+
+                        <strong>예상되는 장애물:</strong>
+                        <textarea placeholder="느헤미야도 대적들을 만났습니다. 우리의 도전은?"></textarea>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="icon">📚</span>
+                    <h2>현대적 적용: 에스라의 율법 낭독 재현</h2>
+                    
+                    <p>느헤미야 8장의 패턴을 따라 여러분의 공동체를 모으십시오:</p>
+
+                    <div style="display: grid; gap: 15px; margin: 20px 0;">
+                        <div style="background: #e7f3ff; padding: 20px; border-radius: 10px;">
+                            <strong>1단계: 낭독 (קָרָא)</strong>
+                            <p>성경 본문을 큰 소리로 함께 읽기</p>
+                            <small>추천 본문: 신명기 6:4-9, 미가 6:8, 마태복음 5-7장</small>
+                        </div>
+                        <div style="background: #fff3cd; padding: 20px; border-radius: 10px;">
+                            <strong>2단계: 해석 (פָּרַשׁ)</strong>
+                            <p>그 의미를 현대 맥락에서 설명하기</p>
+                            <small>질문: 이 본문이 우리 상황에서 무엇을 말하는가?</small>
+                        </div>
+                        <div style="background: #d4edda; padding: 20px; border-radius: 10px;">
+                            <strong>3단계: 깨닫게 함 (בִּין)</strong>
+                            <p>구체적인 순종 방법 제시</p>
+                            <small>행동: 이번 주에 무엇을 다르게 할 것인가?</small>
+                        </div>
+                        <div style="background: #f8d7da; padding: 20px; border-radius: 10px;">
+                            <strong>4단계: 반응 (울음과 기쁨)</strong>
+                            <p>회개와 축하의 공간 허용</p>
+                            <small>느헤미야 8:9-10: "근심하지 말라... 여호와로 인하여 기뻐하는 것이 너희의 힘이니라"</small>
+                        </div>
+                    </div>
+
+                    <div class="reflection-box">
+                        <h4>📅 실천 계획</h4>
+                        <p>매달 한 번, 3개월간 실천하십시오.</p>
+                        
+                        <strong>첫 번째 모임 날짜:</strong>
+                        <textarea placeholder="예: 2024년 2월 3일 토요일 오후 2시"></textarea>
+
+                        <strong>함께할 사람들 (최소 3명):</strong>
+                        <textarea placeholder="이름을 적어보세요..."></textarea>
+
+                        <strong>첫 본문 선택:</strong>
+                        <textarea placeholder="어떤 본문으로 시작할까요?"></textarea>
+                    </div>
+                </div>
+
+                <div class="card" style="border-left-color: #dc3545;">
+                    <span class="icon">🛡️</span>
+                    <h2>정의 방패 & 안식 브레이크</h2>
+                    
+                    <h3>🛡️ 경계 설정에 주의하십시오</h3>
+                    <ul>
+                        <li><strong>에스라 10장 주의:</strong> 에스라-느헤미야의 배타성을 무비판적으로 따르지 마십시오</li>
+                        <li><strong>균형:</strong> 정체성 보호와 환대의 균형을 찾으십시오</li>
+                        <li><strong>함께 읽기:</strong> 룻기, 요나를 함께 읽으십시오</li>
+                    </ul>
+
+                    <h3>🛡️ 여성과 약자를 보호하십시오</h3>
+                    <ul>
+                        <li>회복 과정에서 <strong>누가 희생되는지</strong> 물으십시오</li>
+                        <li>강제 이혼, 추방 같은 폭력적 방법을 반복하지 마십시오</li>
+                        <li>모든 사람의 <strong>존엄성</strong>을 지키십시오</li>
+                    </ul>
+
+                    <h3>⫞ 재건 소진을 경계하십시오</h3>
+                    <ul>
+                        <li><strong>52일 강박:</strong> 느헤미야처럼 빨리 끝내려 하지 마십시오</li>
+                        <li><strong>하나님이 재건하십니다:</strong> 우리는 협력자일 뿐입니다</li>
+                        <li><strong>안식일 지키기:</strong> 회복 사역 중에도 쉬십시오</li>
+                    </ul>
+
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 15px; text-align: center;">
+                        <strong style="font-size: 1.2em; color: #667eea;">기억하십시오:</strong>
+                        <p style="margin-top: 10px;">"여호와께서 집을 세우지 아니하시면<br>세우는 자의 수고가 헛되며" (시편 127:1)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 퀴즈 섹션 -->
+            <div id="quiz" class="section">
+                <div class="interactive-quiz">
+                    <h2 style="margin-bottom: 20px;">🎯 이해도 점검 퀴즈</h2>
+                    
+                    <div class="quiz-question" id="question1">
+                        <strong>질문 1:</strong> 역대기가 사무엘-열왕기와 가장 크게 다른 점은?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(1, 'a', false)">
+                            A. 역대기는 북이스라엘을 더 많이 다룬다
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(1, 'b', false)">
+                            B. 역대기는 다윗의 죄를 더 상세히 다룬다
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(1, 'c', true)">
+                            C. 역대기는 성전과 예배를 중심으로 역사를 재해석한다
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(1, 'd', false)">
+                            D. 역대기는 예언자들의 역할을 강조한다
+                        </div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback1"></div>
+                </div><div class="interactive-quiz">
+                <div class="quiz-question" id="question2">
+                    <strong>질문 2:</strong> 느헤미야가 예루살렘 성벽을 재건하는 데 걸린 시간은?
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(2, 'a', false)">
+                        A. 40일
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(2, 'b', true)">
+                        B. 52일
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(2, 'c', false)">
+                        C. 70일
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(2, 'd', false)">
+                        D. 100일
+                    </div>
+                </div>
+                <div class="quiz-feedback" id="feedback2"></div>
+            </div>
+
+            <div class="interactive-quiz">
+                <div class="quiz-question" id="question3">
+                    <strong>질문 3:</strong> 에스라 7:10에서 에스라의 율법 접근 순서는?
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(3, 'a', false)">
+                        A. 가르침 → 연구 → 실천
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(3, 'b', true)">
+                        C. 연구 → 실천 → 가르침
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(3, 'c', false)">
+                        C. 실천 → 연구 → 가르침
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(3, 'd', false)">
+                        D. 연구 → 가르침 → 실천
+                    </div>
+                </div>
+                <div class="quiz-feedback" id="feedback3"></div>
+            </div>
+
+            <div class="interactive-quiz">
+                <div class="quiz-question" id="question4">
+                    <strong>질문 4:</strong> 히브리 성경은 무엇으로 끝나는가?
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(4, 'a', false)">
+                        A. 말라기 (예언으로 끝남)
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(4, 'b', true)">
+                        B. 역대기 (고레스 칙령: "올라갈지어다")
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(4, 'c', false)">
+                        C. 느헤미야 (성벽 완공)
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(4, 'd', false)">
+                        D. 에스더 (유대인 구원)
+                    </div>
+                </div>
+                <div class="quiz-feedback" id="feedback4"></div>
+            </div>
+
+            <div class="interactive-quiz">
+                <div class="quiz-question" id="question5">
+                    <strong>질문 5:</strong> 에스라 10장에서 논쟁적인 내용은?
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(5, 'a', false)">
+                        A. 제사장들의 부패 고발
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(5, 'b', false)">
+                        B. 십일조 제도 도입
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(5, 'c', true)">
+                        C. 이방 여인과의 강제 이혼 명령
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(5, 'd', false)">
+                        D. 안식일 준수 강조
+                    </div>
+                </div>
+                <div class="quiz-feedback" id="feedback5"></div>
+            </div>
+
+            <div class="card" style="margin-top: 30px;">
+                <h2>🎓 최종 점수</h2>
+                <div id="finalScore" style="font-size: 2em; text-align: center; color: #667eea; margin: 20px 0;">
+                    0 / 5
+                </div>
+                <button class="btn" onclick="resetQuiz()" style="display: block; margin: 0 auto;">퀴즈 다시 하기</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>📖 역대기-에스라-느헤미야 학습 앱</p>
+        <p style="margin-top: 10px; opacity: 0.8;">하나님께서 역사의 중심에 계심을 기억하십시오</p>
+        <p style="margin-top: 15px; font-size: 1.2em;">יַעַל - 올라가십시오!</p>
+    </div>
+</div>
+
+<script>
+    let currentSection = 'intro';
+    let quizScore = 0;
+    let answeredQuestions = new Set();
+
+    function showSection(sectionId) {
+        // 모든 섹션 숨기기
+        document.querySelectorAll('.section').forEach(section => {
+            section.classList.remove('active');
+        });
+
+        // 모든 탭 비활성화
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        // 선택된 섹션 표시
+        document.getElementById(sectionId).classList.add('active');
+        event.target.classList.add('active');
+
+        currentSection = sectionId;
+        updateProgress();
+
+        // 페이지 상단으로 스크롤
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    function updateProgress() {
+        const sections = ['intro', 'chronicles', 'ezra-nehemiah', 'theology', 'application', 'quiz'];
+        const currentIndex = sections.indexOf(currentSection);
+        const progress = ((currentIndex + 1) / sections.length) * 100;
+        document.getElementById('progressBar').style.width = progress + '%';
+    }
+
+    function checkAnswer(questionNum, choice, isCorrect) {
+        // 이미 답변한 질문인지 확인
+        if (answeredQuestions.has(questionNum)) {
+            return;
+        }
+
+        const options = document.querySelectorAll(`#question${questionNum}`).parentElement.querySelectorAll('.quiz-option');
+        const feedback = document.getElementById(`feedback${questionNum}`);
+
+        // 선택한 옵션 표시
+        options.forEach(option => {
+            if (option.textContent.trim().startsWith(choice.toUpperCase())) {
+                if (isCorrect) {
+                    option.classList.add('correct');
+                    quizScore++;
+                    answeredQuestions.add(questionNum);
+                    feedback.innerHTML = '<strong>✅ 정답입니다!</strong><br>' + getExplanation(questionNum);
+                } else {
+                    option.classList.add('incorrect');
+                    feedback.innerHTML = '<strong>❌ 틀렸습니다.</strong><br>' + getExplanation(questionNum);
+                }
+                feedback.classList.add('show');
+            }
+        });
+
+        updateScore();
+    }
+
+    function getExplanation(questionNum) {
+        const explanations = {
+            1: '역대기는 제사장적 관점에서 성전과 예배를 중심으로 역사를 재해석합니다. 사무엘-열왕기가 정치적 관점이라면, 역대기는 예배적 관점입니다.',
+            2: '느헤미야 6:15-16에 기록되어 있습니다. 52일이라는 짧은 기간은 하나님의 도우심과 백성의 헌신을 보여줍니다.',
+            3: '에스라 7:10: "연구하여(다라쉬) → 준행하며(아사) → 가르치기로(라메드)". 이것은 율법 회복의 올바른 순서입니다.',
+            4: '역대하 36:22-23으로 끝나며 "올라갈지어다"(יַעַל)라는 귀환의 초대로 마칩니다. 이것은 열린 결말—이야기는 계속됩니다.',
+            5: '에스라 10장은 이방 여인과의 강제 이혼을 명령합니다. 이것은 정체성 보호를 위한 것이었지만, 여성과 자녀를 희생시키는 문제가 있었습니다. 룻기는 이에 대한 반론을 제시합니다.'
+        };
+        return explanations[questionNum];
+    }
+
+    function updateScore() {
+        document.getElementById('finalScore').textContent = `${quizScore} / 5`;
+        
+        if (quizScore === 5) {
+            document.getElementById('finalScore').innerHTML += '<br><span style="font-size: 0.5em;">🎉 완벽합니다!</span>';
+        } else if (quizScore >= 3) {
+            document.getElementById('finalScore').innerHTML += '<br><span style="font-size: 0.5em;">👍 잘하셨습니다!</span>';
+        }
+    }
+
+    function resetQuiz() {
+        quizScore = 0;
+        answeredQuestions.clear();
+        
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.classList.remove('correct', 'incorrect');
+        });
+        
+        document.querySelectorAll('.quiz-feedback').forEach(feedback => {
+            feedback.classList.remove('show');
+        });
+        
+        updateScore();
+    }
+
+    // Collapsible 기능
+    document.addEventListener('DOMContentLoaded', function() {
+        const collapsibles = document.querySelectorAll('.collapsible');
+        
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+    });
+
+    // 초기 진행률 설정
+    updateProgress();
+</script>
