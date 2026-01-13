@@ -253,6 +253,11 @@
             border-color: #bd2130;
         }
 
+        .quiz-option.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
         .quiz-feedback {
             margin-top: 20px;
             padding: 20px;
@@ -1114,96 +1119,99 @@
                         </div>
                     </div>
                     <div class="quiz-feedback" id="feedback1"></div>
-                </div><div class="interactive-quiz">
-                <div class="quiz-question" id="question2">
-                    <strong>질문 2:</strong> 느헤미야가 예루살렘 성벽을 재건하는 데 걸린 시간은?
                 </div>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="checkAnswer(2, 'a', false)">
-                        A. 40일
-                    </div>
-                    <div class="quiz-option" onclick="checkAnswer(2, 'b', true)">
-                        B. 52일
-                    </div>
-                    <div class="quiz-option" onclick="checkAnswer(2, 'c', false)">
-                        C. 70일
-                    </div>
-                    <div class="quiz-option" onclick="checkAnswer(2, 'd', false)">
-                        D. 100일
-                    </div>
-                </div>
-                <div class="quiz-feedback" id="feedback2"></div>
-            </div>
 
-            <div class="interactive-quiz">
-                <div class="quiz-question" id="question3">
-                    <strong>질문 3:</strong> 에스라 7:10에서 에스라의 율법 접근 순서는?
+                <div class="interactive-quiz">
+                    <div class="quiz-question" id="question2">
+                        <strong>질문 2:</strong> 느헤미야가 예루살렘 성벽을 재건하는 데 걸린 시간은?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(2, 'a', false)">
+                            A. 40일
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(2, 'b', true)">
+                            B. 52일
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(2, 'c', false)">
+                            C. 70일
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(2, 'd', false)">
+                            D. 100일
+                        </div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback2"></div>
                 </div>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="checkAnswer(3, 'a', false)">
-                        A. 가르침 → 연구 → 실천
-                    </div>
-                    <div class="quiz-option" onclick="checkAnswer(3, 'b', true)">
-                        C. 연구 → 실천 → 가르침
-                    </div>
-                    <div class="quiz-option" onclick="checkAnswer(3, 'c', false)">
-                        C. 실천 → 연구 → 가르침
-                    </div>
-                    <div class="quiz-option" onclick="checkAnswer(3, 'd', false)">
-                        D. 연구 → 가르침 → 실천
-                    </div>
-                </div>
-                <div class="quiz-feedback" id="feedback3"></div>
-            </div>
 
-            <div class="interactive-quiz">
-                <div class="quiz-question" id="question4">
-                    <strong>질문 4:</strong> 히브리 성경은 무엇으로 끝나는가?
+                <div class="interactive-quiz">
+                    <div class="quiz-question" id="question3">
+                        <strong>질문 3:</strong> 에스라 7:10에서 에스라의 율법 접근 순서는?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(3, 'a', false)">
+                            A. 가르침 → 연구 → 실천
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(3, 'b', true)">
+                            B. 연구 → 실천 → 가르침
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(3, 'c', false)">
+                            C. 실천 → 연구 → 가르침
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(3, 'd', false)">
+                            D. 연구 → 가르침 → 실천
+                        </div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback3"></div>
                 </div>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="checkAnswer(4, 'a', false)">
-                        A. 말라기 (예언으로 끝남)
-                    </div>
-                    <div class="quiz-option" onclick="checkAnswer(4, 'b', true)">
-                        B. 역대기 (고레스 칙령: "올라갈지어다")
-                    </div>
-                    <div class="quiz-option" onclick="checkAnswer(4, 'c', false)">
-                        C. 느헤미야 (성벽 완공)
-                    </div>
-                    <div class="quiz-option" onclick="checkAnswer(4, 'd', false)">
-                        D. 에스더 (유대인 구원)
-                    </div>
-                </div>
-                <div class="quiz-feedback" id="feedback4"></div>
-            </div>
 
-            <div class="interactive-quiz">
-                <div class="quiz-question" id="question5">
-                    <strong>질문 5:</strong> 에스라 10장에서 논쟁적인 내용은?
+                <div class="interactive-quiz">
+                    <div class="quiz-question" id="question4">
+                        <strong>질문 4:</strong> 히브리 성경은 무엇으로 끝나는가?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(4, 'a', false)">
+                            A. 말라기 (예언으로 끝남)
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(4, 'b', true)">
+                            B. 역대기 (고레스 칙령: "올라갈지어다")
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(4, 'c', false)">
+                            C. 느헤미야 (성벽 완공)
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(4, 'd', false)">
+                            D. 에스더 (유대인 구원)
+                        </div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback4"></div>
                 </div>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="checkAnswer(5, 'a', false)">
-                        A. 제사장들의 부패 고발
-                    </div>
-                    <div class="quiz-option" onclick="checkAnswer(5, 'b', false)">
-                        B. 십일조 제도 도입
-                    </div>
-                    <div class="quiz-option" onclick="checkAnswer(5, 'c', true)">
-                        C. 이방 여인과의 강제 이혼 명령
-                    </div>
-                    <div class="quiz-option" onclick="checkAnswer(5, 'd', false)">
-                        D. 안식일 준수 강조
-                    </div>
-                </div>
-                <div class="quiz-feedback" id="feedback5"></div>
-            </div>
 
-            <div class="card" style="margin-top: 30px;">
-                <h2>🎓 최종 점수</h2>
-                <div id="finalScore" style="font-size: 2em; text-align: center; color: #667eea; margin: 20px 0;">
-                    0 / 5
+                <div class="interactive-quiz">
+                    <div class="quiz-question" id="question5">
+                        <strong>질문 5:</strong> 에스라 10장에서 논쟁적인 내용은?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(5, 'a', false)">
+                            A. 제사장들의 부패 고발
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(5, 'b', false)">
+                            B. 십일조 제도 도입
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(5, 'c', true)">
+                            C. 이방 여인과의 강제 이혼 명령
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(5, 'd', false)">
+                            D. 안식일 준수 강조
+                        </div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback5"></div>
                 </div>
-                <button class="btn" onclick="resetQuiz()" style="display: block; margin: 0 auto;">퀴즈 다시 하기</button>
+
+                <div class="card" style="margin-top: 30px;">
+                    <h2>🎓 최종 점수</h2>
+                    <div id="finalScore" style="font-size: 2em; text-align: center; color: #667eea; margin: 20px 0;">
+                        0 / 5
+                    </div>
+                    <button class="btn" onclick="resetQuiz()" style="display: block; margin: 0 auto;">퀴즈 다시 하기</button>
+                </div>
             </div>
         </div>
     </div>
@@ -1255,12 +1263,20 @@
             return;
         }
 
-        const options = document.querySelectorAll(`#question${questionNum}`).parentElement.querySelectorAll('.quiz-option');
+        // FIXED: Use querySelector and closest to properly find the quiz container
+        const questionElement = document.getElementById(`question${questionNum}`);
+        const quizContainer = questionElement.closest('.interactive-quiz');
+        const options = quizContainer.querySelectorAll('.quiz-option');
         const feedback = document.getElementById(`feedback${questionNum}`);
 
         // 선택한 옵션 표시
         options.forEach(option => {
-            if (option.textContent.trim().startsWith(choice.toUpperCase())) {
+            option.classList.add('disabled'); // Disable all options after first click
+            
+            const optionText = option.textContent.trim();
+            const optionLetter = optionText.charAt(0); // Get first character (A, B, C, or D)
+            
+            if (optionLetter === choice.toUpperCase()) {
                 if (isCorrect) {
                     option.classList.add('correct');
                     quizScore++;
@@ -1303,7 +1319,7 @@
         answeredQuestions.clear();
         
         document.querySelectorAll('.quiz-option').forEach(option => {
-            option.classList.remove('correct', 'incorrect');
+            option.classList.remove('correct', 'incorrect', 'disabled');
         });
         
         document.querySelectorAll('.quiz-feedback').forEach(feedback => {
@@ -1334,3 +1350,5 @@
     // 초기 진행률 설정
     updateProgress();
 </script>
+</body>
+</html>
